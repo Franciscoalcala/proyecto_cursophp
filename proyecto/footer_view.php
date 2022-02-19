@@ -2,22 +2,20 @@
 <script src="AdminLTE/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="AdminLTE/dist/js/adminlte.min.js"></script>
 <!-- jquery-validation -->
 <script src="AdminLTE/plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="AdminLTE/plugins/jquery-validation/additional-methods.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="AdminLTE/dist/js/demo.js"></script>
+<!-- AdminLTE App -->
+<script src="AdminLTE/dist/js/adminlte.min.js"></script>
 <!-- Page specific script -->
 <script>
 $(function () {
   $.validator.setDefaults({
     submitHandler: function () {
-      alert( "Form successful submitted!" );
+		$('#quickForm2').submit();
     }
   });
-  $('#quickForm').validate({
+  $('#quickForm2').validate({
     rules: {
       nombre_alumno: {
         required: true,

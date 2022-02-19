@@ -68,8 +68,8 @@
 					  <td><?php echo $alumno['telefono_alumno']; ?></td>
                       <td><?php echo $alumno['ciudad_alumno']; ?></td>
 					  <td>
-							<input type="submit" name="editar" class="btn btn-info" value="Editar" />
-							<input type="submit" name="borrar" class="btn btn-danger" value="Borrar" />
+						<input type="submit" name="editar" class="btn btn-info" value="Editar" onclick="editarAlumno('<?php echo base64_encode($alumno['id']); ?>')" />
+						<input type="submit" name="borrar" class="btn btn-danger" value="Borrar" onclick="borrarAlumno('<?php echo base64_encode($alumno['id']); ?>')"/>
 					  </td>
                     </tr>
 					<?php endforeach; ?>
@@ -81,11 +81,31 @@
             <!-- /.card -->
           </div>
         </div>
+		<form method="GET" id="form_editaAlumno" action="formulario_alumno.php">
+			<input type="hidden" name="id_usuario" id="id_usuario" value="" />
+		</form>
+		<form method="GET" id="form_borrarAlumno" action="borrar_alumno.php">
+			<input type="hidden" name="id_usuario_b" id="id_usuario_b" value="" />
+		</form>
 <script>
 	function salir(){
 		var input = document.getElementById("logout");
 		var form = document.getElementById("form_salir");
 		input.value = "Salir";
+		form.submit();
+	}
+	
+	function editarAlumno(id){
+		var input = document.getElementById("id_usuario");
+		var form = document.getElementById("form_editaAlumno");
+		input.value = id;
+		form.submit();
+	}
+	
+	function borrarAlumno(id){
+		var input = document.getElementById("id_usuario_b");
+		var form = document.getElementById("form_borrarAlumno");
+		input.value = id;
 		form.submit();
 	}
 </script>
